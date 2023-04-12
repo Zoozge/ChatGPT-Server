@@ -14,7 +14,7 @@ app.get("/:text", (req, res) => {
     },
     body: JSON.stringify({
       "model": "text-davinci-003",
-      "prompt": req.params.text,
+      "prompt": `Q:'${req.params.text}'\nA:`,
       "max_tokens": 512
     })
   };
@@ -23,7 +23,7 @@ app.get("/:text", (req, res) => {
     if (error)
       throw new Error(error);
       
-    res.send(JSON.parse(response.body).choices[0].text);
+    res.send(JSON.parse(response.body).choices[0].text.trim());
   });
 });
 
