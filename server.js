@@ -15,7 +15,7 @@ app.get("/:text", (req, res) => {
     body: JSON.stringify({
       "model": "text-davinci-003",
       "prompt": `Q:'${req.params.text}'\nA:`,
-      "max_tokens": 512
+      "max_tokens": 400
     })
   };
 
